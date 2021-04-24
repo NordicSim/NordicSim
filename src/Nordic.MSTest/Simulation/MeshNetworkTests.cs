@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nordic.Abstractions.Data;
 using Nordic.Simulation.MeshNetwork;
@@ -33,21 +31,30 @@ namespace Nordic.MSTest.Simulation
 			// arrange
 			var netSim = new MeshNetworkSimulator();
 
-			netSim.With((args) => {
-
+			netSim.With((args) =>
+			{
 				var netArgs = args as MeshNetworkArgs;
 				var rand = new Random();
-
 				var randomDevices = Enumerable.Range(0, 10)
-					.Select(i => new SimpleDevice { 
+					.Select(i => new SimpleDevice
+					{
 						Name = $"dev_{i}",
 						Position = new Vertex(rand.Next(0, 100), rand.Next(0, 100), rand.Next(0, 100))
 					})
 					.ToArray();
 
 				netArgs.Network.AddRange(randomDevices);
-			
 			});
+			netSim.OnExecuting += (o, e) =>
+			{
+				_log.Trace($"{e.Arguments.Name} started");
+			};
+
+			netSim.Executed += (o, e) =>
+			{
+				_log.Trace($"{e.Arguments.Name} finished");
+			};
+
 			// act
 			netSim.OnStart()
 				.Run();
