@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 using Nordic.Abstractions.Data;
 using Nordic.Abstractions.Data.Arguments;
 using Nordic.Abstractions.Enumerations;
 using Nordic.Abstractions.Events;
-using Nordic.Abstractions.Runtime;
 using Nordic.Abstractions.Simulation;
 using TeleScope.Logging;
 using TeleScope.Logging.Extensions;
@@ -55,6 +53,11 @@ namespace Nordic.Simulation.AdaptedFriis
 			return this;
 		}
 
+		public ISimulatable OnStart()
+		{
+			_args.UpdatePositions();
+			return this;
+		}
 
 		public void Run()
 		{
@@ -105,5 +108,7 @@ namespace Nordic.Simulation.AdaptedFriis
 		{
 			return 20 * (float)Math.Log10((4 * Math.PI / wavelength));
 		}
+
+	
 	}
 }

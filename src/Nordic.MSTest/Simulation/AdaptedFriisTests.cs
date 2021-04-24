@@ -28,17 +28,13 @@ namespace Nordic.MSTest.Simulation
 		// -- Tests
 
 		[TestMethod]
-		public void AdaptedFriis()
+		public void RunAdaptedFriis()
 		{
 			// arrange
 			var sim = new AdaptedFriisSimulator();
 			sim.OnExecuting += (o, e) =>
 			{
 				_log.Trace($"{e.Arguments.Name} started");
-
-				var args = e.Arguments as AdaptedFriisArgs;
-				args.UpdatePositions();
-
 			};
 
 			sim.Executed += (o, e) =>
@@ -48,7 +44,7 @@ namespace Nordic.MSTest.Simulation
 
 			// act
 			
-			sim.Run();
+			sim.OnStart().Run();
 
 			var radioArgs = sim.Arguments as AdaptedFriisArgs;
 

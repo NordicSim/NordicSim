@@ -61,6 +61,10 @@ namespace Nordic.Abstractions.Simulation
 		/// <returns></returns>
 		ISimulatable With(Action<ArgumentsBase> action);
 
+		/// <summary>
+		/// Gets executed when the simulation starts the first time.
+		/// </summary>
+		ISimulatable OnStart();
 
 		/// <summary>
 		/// Runs the implementation of the simulation model

@@ -8,27 +8,6 @@ namespace Nordic.Abstractions.Data.Arguments
     [Serializable]
     public abstract class ArgumentsBase
     {
-        protected ArgumentsBase()
-        {
-            Guid = System.Guid.NewGuid().ToString();
-            Active = true;
-            Index = -1;
-        }
-
-        // -- methods
-
-        /// <summary>
-        /// Gets a hard coded representation of the arguments
-        /// </summary>
-        /// <returns>The default instance of the arguments implementation</returns>
-        public abstract void Reset();
-
-        /// <summary>
-        /// Returns the Name property of the abstract base class
-        /// </summary>
-        /// <returns>result string</returns>
-        public override string ToString() => $"args: {Name}";
-
         // -- properties
 
         public string Key { get; protected set; }
@@ -53,5 +32,27 @@ namespace Nordic.Abstractions.Data.Arguments
         /// </summary>
         public int Index { get; set; }
 
+        // -- constructor
+
+        protected ArgumentsBase()
+        {
+            Guid = System.Guid.NewGuid().ToString();
+            Active = true;
+            Index = -1;
+        }
+
+        // -- methods
+
+        /// <summary>
+        /// Gets a hard coded representation of the arguments
+        /// </summary>
+        /// <returns>The default instance of the arguments implementation</returns>
+        public abstract void Reset();
+
+        /// <summary>
+        /// Returns the Name property of the abstract base class
+        /// </summary>
+        /// <returns>result string</returns>
+        public override string ToString() => $"args: {Name}";
     }
 }

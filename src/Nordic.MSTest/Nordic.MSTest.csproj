@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Nordic.Abstractions\Nordic.Abstractions.csproj" />
     <ProjectReference Include="..\Nordic.Simulation.AdaptedFriis\Nordic.Simulation.AdaptedFriis.csproj" />
+    <ProjectReference Include="..\Nordic.Simulation.MeshNetwork\Nordic.Simulation.MeshNetwork.csproj" />
   </ItemGroup>
 
 </Project>
