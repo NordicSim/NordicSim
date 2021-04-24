@@ -1,0 +1,28 @@
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace Nordic.Abstractions.Exceptions
+{
+    /// <summary>
+    /// The specific Exception type for operations with the Matrix class.
+    /// </summary>
+    [Serializable]
+    public class MatrixException : Exception
+    {
+        public MatrixException()
+        {
+        }
+
+        public MatrixException(string message) : base(message)
+        {
+        }
+
+        public MatrixException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected MatrixException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
+}
