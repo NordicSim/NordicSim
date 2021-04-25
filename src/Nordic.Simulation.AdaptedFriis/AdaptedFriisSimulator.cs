@@ -11,7 +11,6 @@ using TeleScope.Logging.Extensions;
 
 namespace Nordic.Simulation.AdaptedFriis
 {
-	[Serializable]
 	public class AdaptedFriisSimulator : ISimulatable
 	{
 		// -- fields
@@ -26,15 +25,9 @@ namespace Nordic.Simulation.AdaptedFriis
 
 		// -- properties
 
-		public int Index => _args.Index;
-		public string Key => _args.Key;
-		public string Name => _args.Name;
+		public ArgumentsBase Arguments => _args;
 
 		public SimulationTypes Type => SimulationTypes.Channel;
-
-		public bool IsActive => _args.Active;
-
-		public ArgumentsBase Arguments => _args;
 
 		// -- constructors
 
@@ -79,7 +72,7 @@ namespace Nordic.Simulation.AdaptedFriis
 
 			// log finished process
 			Executed?.Invoke(this, new SimulatorEventArgs(_args));
-			_log.Trace($"{Name} calculated {_args.RadioBox.TotalData} values.");
+			_log.Trace($"{_args.Name} calculated {_args.RadioBox.TotalData} values.");
 		}
 
 		/// <summary>
@@ -106,7 +99,5 @@ namespace Nordic.Simulation.AdaptedFriis
 		{
 			return 20 * (float)Math.Log10((4 * Math.PI / wavelength));
 		}
-
-	
 	}
 }

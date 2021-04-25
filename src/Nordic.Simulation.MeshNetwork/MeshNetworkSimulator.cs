@@ -8,26 +8,22 @@ using Nordic.Abstractions.Simulation;
 
 namespace Nordic.Simulation.MeshNetwork
 {
-	[Serializable]
 	public class MeshNetworkSimulator : ISimulatable
 	{
 		// -- fields
 
 		private readonly MeshNetworkArgs _args;
 
+		// -- properties       
+
+		public ArgumentsBase Arguments => _args;
+
+		public SimulationTypes Type => SimulationTypes.Network;
+
 		// -- events
 
 		public event SimulatorEventHandler OnExecuting;
 		public event SimulatorEventHandler Executed;
-
-		// -- properties       
-
-		public int Index => _args.Index;
-		public string Key => _args.Key;
-		public string Name => _args.Name;
-		public ArgumentsBase Arguments => _args;
-		public SimulationTypes Type => SimulationTypes.Network;
-		public bool IsActive => _args.Active;
 
 		// -- constructor
 

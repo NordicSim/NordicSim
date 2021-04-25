@@ -23,7 +23,7 @@ namespace Nordic.Abstractions.Exceptions
 		{
 		}
 
-		public SimulatorException(ISimulatable simulator, string message) : base($"{simulator.Name} failed: {message}")
+		public SimulatorException(ISimulatable simulator, string message) : base($"{simulator.Arguments.Name} failed: {message}")
 		{
 		}
 	}

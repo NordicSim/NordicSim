@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Nordic.Abstractions\Nordic.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

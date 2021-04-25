@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nordic.Abstractions.Simulation;
 using Nordic.Runtime;
 using Nordic.Simulation.AdaptedFriis;
+using Nordic.Simulation.Battery;
 using Nordic.Simulation.MeshNetwork;
 using TeleScope.Logging.Extensions;
 
@@ -30,7 +31,7 @@ namespace Nordic.MSTest.Runtime
 		[TestMethod]
 		public async Task SimulateRuntimeAsync()
 		{
-			// arrange
+			// -- arrange
 
 			// radio channel
 			var radioSim = new AdaptedFriisSimulator();
@@ -41,9 +42,14 @@ namespace Nordic.MSTest.Runtime
 			});
 
 			// antenna
-			//var antennaArgs = simArgs.GetByName(Models.Antenna.Spheric.Name) as SphericAntennaArgs;
-			//antennaArgs.Index = 20;
-			//base.LoadAntennaData(antennaArgs);
+
+			// energy
+			var batterySim = new BatteryPackSimulator();
+			batterySim.With((args) =>
+			{
+				var batteryArgs = args as BatteryArgs;
+				batteryArgs.AddBattery();
+			});
 
 			// network
 			var networkSim = new MeshNetworkSimulator();
@@ -53,10 +59,11 @@ namespace Nordic.MSTest.Runtime
 			var simRepo = new SimulatorRepository();
 			simRepo.AddRange(new ISimulatable[] {
 				radioSim,
-				networkSim
+				networkSim,
+				batterySim
 			});
 
-			// arrange runtime
+			// runtime
 			var runner = new Runner();
 			runner.BindSimulators(simRepo);
 			runner.Started += (o, e) =>
@@ -72,7 +79,7 @@ namespace Nordic.MSTest.Runtime
 				_log.Trace($"Runner stopped.");
 			};
 
-			// act
+			// -- act
 			int iterations = 5;
 			if (!runner.Validate())
 			{
@@ -82,7 +89,7 @@ namespace Nordic.MSTest.Runtime
 			_log.Trace($"RunAsync for {iterations} times");
 			await runner.RunAsync(iterations);
 
-			// assert
+			// -- assert
 			var runArgs = runner.Arguments as RuntimeArgs;
 			Assert.IsTrue(runArgs.Iterations == 5, $"simulation should have passed {iterations} iterations");
 		}

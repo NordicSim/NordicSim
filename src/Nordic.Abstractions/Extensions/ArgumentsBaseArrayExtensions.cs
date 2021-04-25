@@ -27,28 +27,5 @@ namespace Nordic.Abstractions.Extensions
 		{
 			return args.ToList().IndexOf(args.GetByName(name));
 		}
-
-		// -- Guid
-
-		public static bool ContainsGuid(this ArgumentsBase[] args, string guid)
-		{
-			return args.Any(a => a.Guid == guid);
-		}
-
-		public static ArgumentsBase GetByGuid(this ArgumentsBase[] args, string guid)
-		{
-			return args.FirstOrDefault(a => a.Guid == guid);
-		}
-
-		public static void SetByGuid(this ArgumentsBase[] args, string guid, ArgumentsBase value)
-		{
-			var index = args.GetIndexByGuid(guid);
-			args[index] = value;
-		}
-
-		public static int GetIndexByGuid(this ArgumentsBase[] args, string guid)
-		{
-			return args.ToList().IndexOf(args.GetByGuid(guid));
-		}
 	}
 }

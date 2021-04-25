@@ -4,7 +4,6 @@ using Nordic.Abstractions.Data.Arguments;
 
 namespace Nordic.Runtime
 {
-	[Serializable]
 	public class RuntimeArgs : ArgumentsBase
 	{
 		// -- fields
@@ -46,6 +45,7 @@ namespace Nordic.Runtime
 		{
 			Key = KEY;
 			Name = NAME;
+
 			CycleDuration = TimeSpan.FromSeconds(Const.Runtime.IncrementSeconds);
 		}
 

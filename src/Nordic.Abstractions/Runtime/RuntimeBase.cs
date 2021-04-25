@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Nordic.Abstractions.Data.Arguments;
@@ -203,17 +204,16 @@ namespace Nordic.Abstractions.Runtime
 
 		private void OnStart(object sender, SimulatorEventArgs e)
 		{
-			var list = _simRepo.SortActiveSimulators();
-			list.ForEach(s => s.OnStart());
+			_simRepo.SortActiveSimulators()
+				.ToList()
+				.ForEach(s => s.OnStart());
 		}
 
 		/// <summary>
 		/// Returns the Name property of the Arguments instance
 		/// </summary>
 		/// <returns>result string</returns>
-		public override string ToString()
-		{
-			return Arguments.Name;
-		}
+		public override string ToString() => Arguments.Name;
+
 	}
 }

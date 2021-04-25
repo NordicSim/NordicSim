@@ -11,34 +11,14 @@ namespace Nordic.Abstractions.Simulation
 		// -- properties
 
 		/// <summary>
-		/// 
-		/// </summary>
-		int Index { get; }
-
-		/// <summary>
-		/// Gets the name property of the simulation model
-		/// </summary>
-		string Name { get; }
-
-		/// <summary>
-		/// Gets the Identifier of the simulation model
-		/// </summary>
-		string Key { get; }
-
-		/// <summary>
-		/// Gets the type of the simulation model
-		/// </summary>
-		SimulationTypes Type { get; }
-
-		/// <summary>
-		/// 
-		/// </summary>
-		bool IsActive { get; }
-
-		/// <summary>
 		///	
 		/// </summary>
 		ArgumentsBase Arguments { get; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		SimulationTypes Type { get; }
 
 		// -- events
 

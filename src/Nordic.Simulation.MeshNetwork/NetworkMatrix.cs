@@ -9,9 +9,15 @@ namespace Nordic.Simulation.MeshNetwork
 	/// during Each function calls the main diagonal is skipped, because it relates to the same device.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	[Serializable]
 	public class NetworkMatrix<T> : Matrix<T>
 	{
+		// -- properties
+
+		/// <summary>
+		/// Gets the size of Matrix aus. Diese kann nur über die Init-Methode verändert werden.
+		/// </summary>
+		public int Size { get; private set; }
+
 		// -- constructors
 
 		public NetworkMatrix()
@@ -65,12 +71,5 @@ namespace Nordic.Simulation.MeshNetwork
 				}
 			}
 		}
-
-		// -- properties
-
-		/// <summary>
-		/// Gets the size of Matrix aus. Diese kann nur über die Init-Methode verändert werden.
-		/// </summary>
-		public int Size { get; private set; }
 	}
 }

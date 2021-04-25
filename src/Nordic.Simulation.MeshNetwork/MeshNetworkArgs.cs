@@ -1,5 +1,4 @@
-﻿using System;
-using Nordic.Abstractions.Data.Arguments;
+﻿using Nordic.Abstractions.Data.Arguments;
 
 namespace Nordic.Simulation.MeshNetwork
 {
