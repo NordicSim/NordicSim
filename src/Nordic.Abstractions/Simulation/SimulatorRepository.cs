@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace Nordic.Abstractions.Simulation
 {
-    [Serializable]
     public class SimulatorRepository
     {
         // -- fields
@@ -75,22 +74,11 @@ namespace Nordic.Abstractions.Simulation
                 .OrderBy(s => s.Index).ToList();
         }
 
-        //public void SetArguments(string id, ArgumentsBase args)
-        //{
-        //    this[id].With(args);
-        //}
 
         public ISimulatable GetByName(string name)
         {
             return Items.FirstOrDefault(s => s.Name == name);
         }
-        
-  //      public ArgumentsBase[] AllArguments()
-		//{
-  //          return Items.Select(s => s.Arguments).ToArray();
-
-  //      }
-
-	
+        	
 	}
 }

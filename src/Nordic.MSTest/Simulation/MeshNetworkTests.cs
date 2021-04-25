@@ -33,17 +33,7 @@ namespace Nordic.MSTest.Simulation
 
 			netSim.With((args) =>
 			{
-				var netArgs = args as MeshNetworkArgs;
-				var rand = new Random();
-				var randomDevices = Enumerable.Range(0, 10)
-					.Select(i => new SimpleDevice
-					{
-						Name = $"dev_{i}",
-						Position = new Vertex(rand.Next(0, 100), rand.Next(0, 100), rand.Next(0, 100))
-					})
-					.ToArray();
-
-				netArgs.Network.AddRange(randomDevices);
+				base.BuildMeshNetwork(args as MeshNetworkArgs);
 			});
 			netSim.OnExecuting += (o, e) =>
 			{

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using FluentValidation;
 using Nordic.Abstractions.Validations;
 
@@ -12,7 +11,7 @@ namespace Nordic.Simulation.MeshNetwork
 		private readonly MeshNetwork _network;
 
 		// -- properties
-		
+
 		public object Result { get; private set; }
 
 		public bool HasSucceeded { get; private set; }

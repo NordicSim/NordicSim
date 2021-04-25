@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Nordic.Abstractions.Data.Arguments;
 using Nordic.Abstractions.Events;
 using Nordic.Abstractions.Simulation;
-using Microsoft.Extensions.Logging;
 using TeleScope.Logging;
 using TeleScope.Logging.Extensions;
-using TeleScope.Persistence.Abstractions;
 
 namespace Nordic.Abstractions.Runtime
 {
@@ -71,12 +70,13 @@ namespace Nordic.Abstractions.Runtime
 		protected RuntimeBase()
 		{
 			_log = LoggingProvider.CreateLogger<RuntimeBase>();
-			_simRepo = new SimulatorRepository();
+			BindSimulators(new SimulatorRepository());
+			Started += OnStart;
 		}
 
 		// -- methods
 
-		public abstract RuntimeBase With(ArgumentsBase args);
+		public abstract RuntimeBase With(Action<ArgumentsBase> action);
 
 		/// <summary>
 		/// Takes the Simulator Repository instance with all ready-to-go simulators and sets the internal valid-state to invalid.
@@ -84,16 +84,10 @@ namespace Nordic.Abstractions.Runtime
 		/// </summary>
 		/// <param name="simulatorRepo">The repository instance</param>
 		/// <returns>Returns the calling instance for method chaining</returns>
-		public virtual RuntimeBase BindSimulators(SimulatorRepository simulatorRepo)
+		public RuntimeBase BindSimulators(SimulatorRepository simulatorRepo)
 		{
 			_isValid = false;
 			_simRepo = simulatorRepo;
-			return this;
-		}
-
-		public virtual RuntimeBase SetupSimulators(Action<SimulatorRepository> action)
-		{
-			action(_simRepo);
 			return this;
 		}
 
@@ -169,7 +163,7 @@ namespace Nordic.Abstractions.Runtime
 				_log.Info($"# Start of simulation");
 				_isRunning = condition(this);
 
-				// fire event on iteration starts
+				// fire event when iteration starts
 				Started?.Invoke(this, new SimulatorEventArgs(Arguments));
 
 				var list = _simRepo.SortActiveSimulators();
@@ -206,6 +200,12 @@ namespace Nordic.Abstractions.Runtime
 			});
 		}
 		#endregion
+
+		private void OnStart(object sender, SimulatorEventArgs e)
+		{
+			var list = _simRepo.SortActiveSimulators();
+			list.ForEach(s => s.OnStart());
+		}
 
 		/// <summary>
 		/// Returns the Name property of the Arguments instance

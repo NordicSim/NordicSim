@@ -15,26 +15,19 @@ namespace Nordic.Simulation.MeshNetwork
 
 		private readonly MeshNetworkArgs _args;
 
+		// -- events
+
 		public event SimulatorEventHandler OnExecuting;
 		public event SimulatorEventHandler Executed;
 
 		// -- properties       
 
-		public int Index => throw new NotImplementedException();
-
+		public int Index => _args.Index;
 		public string Key => _args.Key;
 		public string Name => _args.Name;
-
 		public ArgumentsBase Arguments => _args;
 		public SimulationTypes Type => SimulationTypes.Network;
-
-
-
-		SimulationTypes ISimulatable.Type => throw new NotImplementedException();
-
-		public bool IsActive => throw new NotImplementedException();
-
-		ArgumentsBase ISimulatable.Arguments => throw new NotImplementedException();
+		public bool IsActive => _args.Active;
 
 		// -- constructor
 
