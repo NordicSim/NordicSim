@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Nordic.Simulation.MeshNetwork\Nordic.Simulation.MeshNetwork.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+
 </Project>

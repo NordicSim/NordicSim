@@ -27,7 +27,6 @@ namespace Nordic.Simulation.AdaptedFriis
 		// -- properties
 
 		public int Index => _args.Index;
-
 		public string Key => _args.Key;
 		public string Name => _args.Name;
 
@@ -62,7 +61,6 @@ namespace Nordic.Simulation.AdaptedFriis
 		public void Run()
 		{
 			OnExecuting?.Invoke(this, new SimulatorEventArgs(_args));
-
 
 			var tx = new Vertex();
 			float a = _args.AttenuationExponent;

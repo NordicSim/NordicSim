@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nordic.Abstractions.Simulation;
+using Nordic.Runtime;
 using Nordic.Simulation.AdaptedFriis;
 using Nordic.Simulation.MeshNetwork;
-using Nordic.Runtime;
-using Nordic.Abstractions.Simulation;
 using TeleScope.Logging.Extensions;
 
 namespace Nordic.MSTest.Runtime
@@ -34,6 +34,11 @@ namespace Nordic.MSTest.Runtime
 
 			// radio channel
 			var radioSim = new AdaptedFriisSimulator();
+			radioSim.With((args) =>
+			{
+				var radioArgs = args as AdaptedFriisArgs;
+				radioArgs.RadioBox.Resolution = 0.2F;
+			});
 
 			// antenna
 			//var antennaArgs = simArgs.GetByName(Models.Antenna.Spheric.Name) as SphericAntennaArgs;
@@ -51,22 +56,17 @@ namespace Nordic.MSTest.Runtime
 				networkSim
 			});
 
-			// final setup, cross-bind some arguments
+			// arrange runtime
 			var runner = new Runner();
-
 			runner.BindSimulators(simRepo);
-
-
 			runner.Started += (o, e) =>
 			{
 				_log.Trace($"Runner started.");
 			};
-
 			runner.IterationPassed += (o, e) =>
 			{
 				_log.Trace($"Runner passed iteration");
 			};
-
 			runner.Stopped += (o, e) =>
 			{
 				_log.Trace($"Runner stopped.");
