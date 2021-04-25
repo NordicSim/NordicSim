@@ -8,6 +8,8 @@ namespace Nordic.Simulation.Battery
 	{
 		// --- fields
 
+		public const string NAME = "Battery Pack";
+
 		// --- properties
 
 		public BatteryState State { get; set; }
@@ -83,8 +85,7 @@ namespace Nordic.Simulation.Battery
 		/// </summary>
 		public BatteryPack()
 		{
-			// TODO: remove magic string
-			Name = "Battery Pack";
+			Name = NAME;
 			Type = PartTypes.PowerSupply;
 			State = BatteryState.R6;
 			Polynom = BatteryState.R6_POLYNOM;
@@ -96,7 +97,7 @@ namespace Nordic.Simulation.Battery
 		/// <param name="name"></param>
 		public BatteryPack(string name) : this()
 		{
-			base.Name = name;
+			Name = name;
 		}
 		#endregion
 

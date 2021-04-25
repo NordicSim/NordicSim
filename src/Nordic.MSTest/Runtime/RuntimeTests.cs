@@ -41,14 +41,13 @@ namespace Nordic.MSTest.Runtime
 				radioArgs.RadioBox.Resolution = 0.2F;
 			});
 
-			// antenna
-
 			// energy
 			var batterySim = new BatteryPackSimulator();
 			batterySim.With((args) =>
 			{
 				var batteryArgs = args as BatteryArgs;
-				batteryArgs.AddBattery();
+				var battery = batteryArgs.AddBattery();
+				batteryArgs.UpdateDischargeCurrent(battery.Uid, 100);
 			});
 
 			// network

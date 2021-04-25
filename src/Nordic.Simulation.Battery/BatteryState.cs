@@ -124,10 +124,7 @@ namespace Nordic.Simulation.Battery
 				ElapsedTime = ElapsedTime.Add(ts);
 			}
 
-			public override string ToString()
-			{
-				return $"SoD: {SoD}, time: {ElapsedTime}";
-			}
+			public override string ToString() => $"SoD: {SoD}, time: {ElapsedTime}";
 		}
 	}
 }

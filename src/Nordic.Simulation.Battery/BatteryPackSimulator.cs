@@ -30,7 +30,7 @@ namespace Nordic.Simulation.Battery
 		// -- connstructor 
 
 		/// <summary>
-		/// Baware: no runtime will be usable
+		/// 
 		/// </summary>
 		public BatteryPackSimulator()
 		{
@@ -54,19 +54,14 @@ namespace Nordic.Simulation.Battery
 
 		public void Run()
 		{
+			OnExecuting?.Invoke(this, new SimulatorEventArgs(_args));
 
-			// TODO the discharge current should come from the energy consumption based on the device / comm. simulation 
-			//var current = 100;
+			foreach(var battery in _args.Batteries)
+			{
+				Discharge(battery, _args.GetDischargeCurrent(battery.Uid), _args.CycleDuration);
+			}
 
-			//_networkArgs.Network.Items.ForEach(d =>
-			//{
-			//	var powerSupply = d.Parts.GetPowerSupply();
-			//	if (powerSupply != null)
-			//	{
-			//		var battery = powerSupply as BatteryPack;
-			//		Discharge(battery, current, _runArgs.CycleDuration);
-			//	}
-			//});
+			Executed?.Invoke(this, new SimulatorEventArgs(_args));
 		}
 
 		public void Discharge(BatteryPack battery, float current, TimeSpan time)
@@ -76,12 +71,12 @@ namespace Nordic.Simulation.Battery
 				return;
 			}
 
-			// Vorbereitungen...
+			// prepare
 			var seconds = (float)time.TotalSeconds;
 			var initial = battery.State.Initial;
 			var now = battery.State.Now;
 
-			// Berechnungen...
+			// calculations
 			now.TemperaturFactor = 1;
 			now.CurrentFactor = 1;
 			SetSelfDischarge(initial, now, seconds);
@@ -93,7 +88,7 @@ namespace Nordic.Simulation.Battery
 			now.Charge += qt;
 			now.AddTime(time);
 
-			// finish & check again
+			// finish & check
 			Check(battery);
 		}
 
