@@ -30,11 +30,5 @@ namespace Nordic.Abstractions.Devices
         {
             return _items.FirstOrDefault(p => p.Type == PartTypes.PowerSupply);
         }
-
-        //public void Add(BatteryPack battery)
-        //{
-        //    _items.Add(battery);
-
-        //}
     }
 }
