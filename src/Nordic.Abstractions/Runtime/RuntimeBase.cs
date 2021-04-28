@@ -88,7 +88,7 @@ namespace Nordic.Abstractions.Runtime
 		public RuntimeBase BindSimulators(SimulatorRepository simulatorRepo)
 		{
 			_isValid = false;
-			_simRepo = simulatorRepo;
+			_simRepo = simulatorRepo ?? throw new ArgumentException("The simulation repository must not be null.", nameof(simulatorRepo));
 			return this;
 		}
 
