@@ -5,7 +5,7 @@ on:
       - main # Default release branch
 
 env:
-  docu-dir: src/D3vS1m.Docu/
+  docu-dir: src/Nordic.Docu/
 
 jobs:
   publish:

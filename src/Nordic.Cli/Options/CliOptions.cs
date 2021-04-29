@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using TeleScope.UI.Cli.Options;
 
-namespace D3vS1m.Cli.Options
+namespace Nordic.Cli.Options
 {
     /// <summary>
     /// This class contains all options for command line arguments

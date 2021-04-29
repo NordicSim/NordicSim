@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using D3vS1m.Cli.Options;
 using Microsoft.Extensions.Logging;
 using Nordic.Abstractions.Data;
 using Nordic.Abstractions.Exceptions;
 using Nordic.Abstractions.Simulation;
+using Nordic.Cli.Options;
 using Nordic.Runtime;
 using Nordic.Simulation.AdaptedFriis;
 using Nordic.Simulation.Battery;
@@ -16,7 +16,7 @@ using TeleScope.Logging.Extensions;
 using TeleScope.Logging.Extensions.Serilog;
 using TeleScope.UI.Cli.Options;
 
-namespace D3vS1m.Cli
+namespace Nordic.Cli
 {
 	public static class Program
 	{
