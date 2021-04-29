@@ -8,7 +8,7 @@
 					],
 					"exclude": [
 						"...",
-						"**/Nordic.MSTests.csproj",
+						"**/Nordic.MSTest.csproj",
 						"**/Nordic.Docu.csproj",
 						"**/README.md"
 					],
