@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.Simulation.Battery",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.Cli", "Nordic.Cli\Nordic.Cli.csproj", "{D8450DED-1AF2-406A-8F4A-3D5F4E8D5CFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nordic.Docu", "Nordic.Docu\Nordic.Docu.csproj", "{91A4CA02-196C-458D-9D2D-429D3435F5B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.Docu", "Nordic.Docu\Nordic.Docu.csproj", "{91A4CA02-196C-458D-9D2D-429D3435F5B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,7 +75,6 @@ Global
 		{D8450DED-1AF2-406A-8F4A-3D5F4E8D5CFD}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{91A4CA02-196C-458D-9D2D-429D3435F5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{91A4CA02-196C-458D-9D2D-429D3435F5B9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{91A4CA02-196C-458D-9D2D-429D3435F5B9}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
