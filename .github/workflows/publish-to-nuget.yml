@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: 
-        Projects: [Abstractions, Runtime, Simulation.AdaptedFriis, Simulation.Battery, Simulation.Network]
+        Projects: [Abstractions, Runtime, Simulation.AdaptedFriis, Simulation.Battery, Simulation.Networking]
     steps:
       - uses: actions/checkout@v2
         

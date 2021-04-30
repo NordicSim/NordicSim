@@ -2,7 +2,6 @@
 
 namespace Nordic.Abstractions.Data
 {
-    [Serializable]
     public class Matrix<T>
     {
 
