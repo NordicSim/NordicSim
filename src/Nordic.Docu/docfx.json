@@ -4,7 +4,7 @@
 			"src": [
 				{
 					"files": [
-						"**/**.csproj"
+						"**/Nordic.Runtime.csproj"
 					],
 					"exclude": [
 						"**/Nordic.MSTest.csproj",
