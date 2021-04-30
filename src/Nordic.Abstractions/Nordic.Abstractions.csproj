@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Simulation\SimulatorBase.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="TeleScope.Logging" Version="0.2.0" />
     <PackageReference Include="TeleScope.Persistence.Abstractions" Version="0.6.0" />
   </ItemGroup>

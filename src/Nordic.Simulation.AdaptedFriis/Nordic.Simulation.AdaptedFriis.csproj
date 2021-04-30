@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="IAdaptedFriisArgsDecorable.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Nordic.Abstractions\Nordic.Abstractions.csproj" />
   </ItemGroup>
 
