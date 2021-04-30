@@ -9,6 +9,7 @@
 					"exclude": [
 						"**/Nordic.MSTest.csproj",
 						"**/Nordic.Docu.csproj",
+						"**/Nordic.Simulation.Networking.csproj",
 						"**/README.md"
 					],
 					"src": ".."
