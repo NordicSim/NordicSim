@@ -4,8 +4,8 @@
 			"src": [
 				{
 					"files": [
-						"**/Nordic.Abstractions.csproj",
 						"**/Nordic.Runtime.csproj",
+						"**/Nordic.Abstractions.csproj",
 						"**/Nordic.Simulation.AdaptedFriis.csproj",
 						"**/Nordic.Simulation.Battery.csproj",
 						"**/Nordic.Simulation.MeshNetwork.csproj"
