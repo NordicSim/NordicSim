@@ -7,7 +7,8 @@
 						"**/Nordic.Runtime.csproj",
 						"**/Nordic.Abstractions.csproj",
 						"**/Nordic.Simulation.Battery.csproj",
-						"**/Nordic.Simulation.AdaptedFriis.csproj"
+						"**/Nordic.Simulation.AdaptedFriis.csproj",
+						"**/Nordic.Simulation.MeshNetwork.csproj"
 					],
 					"exclude": [
 						"**/Nordic.MSTest.csproj",
