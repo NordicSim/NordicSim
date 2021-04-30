@@ -2,8 +2,8 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nordic.Abstractions.Data;
-using Nordic.Simulation.MeshNetwork;
-using Nordic.Simulation.MeshNetwork.Devices;
+using Nordic.Simulation.Network;
+using Nordic.Simulation.Network.Devices;
 using TeleScope.Logging.Extensions;
 
 namespace Nordic.MSTest.Simulation

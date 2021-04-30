@@ -3,8 +3,8 @@ using System.Linq;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nordic.Abstractions.Data;
-using Nordic.Simulation.MeshNetwork;
-using Nordic.Simulation.MeshNetwork.Devices;
+using Nordic.Simulation.Network;
+using Nordic.Simulation.Network.Devices;
 using TeleScope.Logging;
 using TeleScope.Logging.Extensions.Serilog;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using Nordic.Abstractions.Data;
 
-namespace Nordic.Simulation.MeshNetwork
+namespace Nordic.Simulation.Network
 {
 	/// <summary>
 	/// The network matrix is a special case of the matrix type. This matrix stores any type of data that represents a relationship between two network devices

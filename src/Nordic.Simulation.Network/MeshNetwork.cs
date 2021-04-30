@@ -8,7 +8,7 @@ using Nordic.Abstractions.Devices;
 using TeleScope.Logging;
 using TeleScope.Logging.Extensions;
 
-namespace Nordic.Simulation.MeshNetwork
+namespace Nordic.Simulation.Network
 {
 	public class MeshNetwork : IEnumerable<IDevice>
 	{

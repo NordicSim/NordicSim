@@ -4,7 +4,7 @@ using Nordic.Abstractions.Simulation;
 using Nordic.Runtime;
 using Nordic.Simulation.AdaptedFriis;
 using Nordic.Simulation.Battery;
-using Nordic.Simulation.MeshNetwork;
+using Nordic.Simulation.Network;
 using TeleScope.Logging.Extensions;
 
 namespace Nordic.MSTest.Runtime

@@ -2,7 +2,7 @@
 using FluentValidation;
 using Nordic.Abstractions.Validations;
 
-namespace Nordic.Simulation.MeshNetwork
+namespace Nordic.Simulation.Network
 {
 	public class MeshNetworkValidator : AbstractValidator<MeshNetwork>, IValidatable
 	{

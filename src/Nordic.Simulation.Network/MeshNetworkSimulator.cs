@@ -6,7 +6,7 @@ using Nordic.Abstractions.Enumerations;
 using Nordic.Abstractions.Events;
 using Nordic.Abstractions.Simulation;
 
-namespace Nordic.Simulation.MeshNetwork
+namespace Nordic.Simulation.Network
 {
 	public class MeshNetworkSimulator : ISimulatable
 	{

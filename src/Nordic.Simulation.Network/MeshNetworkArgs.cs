@@ -1,6 +1,6 @@
 ﻿using Nordic.Abstractions.Data.Arguments;
 
-namespace Nordic.Simulation.MeshNetwork
+namespace Nordic.Simulation.Network
 {
 	public class MeshNetworkArgs : ArgumentsBase
 	{

@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.Simulation.AdaptedFr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.MSTest", "Nordic.MSTest\Nordic.MSTest.csproj", "{1FD7C3B9-BE7D-49EA-831C-7C96E25D7845}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.Simulation.MeshNetwork", "Nordic.Simulation.MeshNetwork\Nordic.Simulation.MeshNetwork.csproj", "{EB28A721-5F11-4F49-99A1-ABD30329317A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.Simulation.Network", "Nordic.Simulation.Network\Nordic.Simulation.Network.csproj", "{EB28A721-5F11-4F49-99A1-ABD30329317A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nordic.Runtime", "Nordic.Runtime\Nordic.Runtime.csproj", "{AF64C9C1-9B45-4DBD-8B2B-EC955DE7D00E}"
 EndProject
