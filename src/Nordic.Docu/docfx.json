@@ -4,7 +4,8 @@
 			"src": [
 				{
 					"files": [
-						"**/Nordic.Runtime.csproj"
+						"**/Nordic.Runtime.csproj",
+						"**/Nordic.Abstractions.csproj"
 					],
 					"exclude": [
 						"**/Nordic.MSTest.csproj",
