@@ -3,7 +3,7 @@ using Nordic.Abstractions.Constants;
 using Nordic.Abstractions.Data;
 using Nordic.Abstractions.Devices;
 
-namespace Nordic.Simulation.Network.Devices
+namespace Nordic.Simulation.Networking.Devices
 {
 	public class SimpleDevice : IDevice
 	{

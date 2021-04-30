@@ -19,7 +19,7 @@
     <ProjectReference Include="..\Nordic.Runtime\Nordic.Runtime.csproj" />
     <ProjectReference Include="..\Nordic.Simulation.AdaptedFriis\Nordic.Simulation.AdaptedFriis.csproj" />
     <ProjectReference Include="..\Nordic.Simulation.Battery\Nordic.Simulation.Battery.csproj" />
-    <ProjectReference Include="..\Nordic.Simulation.Network\Nordic.Simulation.Network.csproj" />
+    <ProjectReference Include="..\Nordic.Simulation.Networking\Nordic.Simulation.Networking.csproj" />
   </ItemGroup>
 
   <ItemGroup>
