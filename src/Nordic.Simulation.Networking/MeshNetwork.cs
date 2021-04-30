@@ -23,22 +23,22 @@ namespace Nordic.Simulation.Networking
 		/// <summary>
 		/// Gets or sets the communication associations between the devices.
 		/// </summary>
-		public NetworkMatrix<bool> AssociationMatrix { get; set; }
+		public Matrix<bool> AssociationMatrix { get; set; }
 
 		/// <summary>
 		/// Gets or sets the distances between the devices.
 		/// </summary>
-		public NetworkMatrix<float> DistanceMatrix { get; set; }
+		public Matrix<float> DistanceMatrix { get; set; }
 
 		/// <summary>
 		/// Gets or sets the received signal strength (RSS) between the devices.
 		/// </summary>
-		public NetworkMatrix<float> RssMatrix { get; set; }
+		public Matrix<float> RssMatrix { get; set; }
 
 		/// <summary>
 		/// Gets or sets the angles between the devices.
 		/// </summary>
-		public NetworkMatrix<Angle> AngleMatrix { get; set; }
+		public Matrix<Angle> AngleMatrix { get; set; }
 
 		// -- indexter
 
@@ -52,10 +52,10 @@ namespace Nordic.Simulation.Networking
 
 			_items = new List<IDevice>();
 
-			AssociationMatrix = new NetworkMatrix<bool>();
-			DistanceMatrix = new NetworkMatrix<float>();
-			RssMatrix = new NetworkMatrix<float>();
-			AngleMatrix = new NetworkMatrix<Angle>();
+			AssociationMatrix = new Matrix<bool>();
+			DistanceMatrix = new Matrix<float>();
+			RssMatrix = new Matrix<float>();
+			AngleMatrix = new Matrix<Angle>();
 		}
 
 		// -- methods

@@ -4,6 +4,7 @@ namespace Nordic.Abstractions.Data
 {
     public class Matrix<T>
     {
+        // -- fields
 
         /*
          * generic jagged array:
@@ -12,7 +13,35 @@ namespace Nordic.Abstractions.Data
          */
         protected T[][] _matrix;
 
-        // --- constructors
+        // -- properties
+
+        /// <summary>
+        /// Gibt die Größe der Matrix aus. Diese kann nur über die Init-Methode verändert werden.
+        /// </summary>
+        public int RowsCount { get; private set; }
+
+        /// <summary>
+        /// Gibt die Größe der Matrix aus. Diese kann nur über die Init-Methode verändert werden.
+        /// </summary>
+        public int ColsCount { get; private set; }
+
+        // -- indexer 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public T this[int row, int col]
+        {
+            get
+            {
+                return _matrix[row][col];
+            }
+        }
+
+        // -- constructors
 
         #region constructor (2)
         public Matrix()
@@ -26,7 +55,28 @@ namespace Nordic.Abstractions.Data
         }
         #endregion
 
-        // --- methods
+        // -- methods
+
+        /// <summary>
+        /// Initializes the matrix (new) and sets all items to its default(T) value.
+        /// Existing values will be overwritten.
+        /// </summary>
+        /// <param name="size">The size of the matrix</param>
+        public void Init(int size)
+        {
+            Init(size, size);
+        }
+
+        /// <summary>
+        /// Initializes the matrix (new) and sets all items to the given value.
+        /// Existing values will be overwritten.
+        /// </summary>
+        /// <param name="size">The size of the matrix</param>
+        /// <param name="value">the initial value for each item</param>
+        public void Init(int size, T value)
+        {
+            Init(size, size, value);
+        }
 
         /// <summary>
         /// (Re-)Initializes the matrix and sets all elements with default()T values of the defined type.
@@ -36,7 +86,7 @@ namespace Nordic.Abstractions.Data
         /// <param name="cols">The number of columns.</param>
         public void Init(int rows, int cols)
         {
-            Init(rows, cols, default(T));
+            Init(rows, cols, default);
         }
 
         /// <summary>
@@ -174,33 +224,7 @@ namespace Nordic.Abstractions.Data
             }
         }
 
-        // --- properties
-
-        /// <summary>
-        /// Gibt die Größe der Matrix aus. Diese kann nur über die Init-Methode verändert werden.
-        /// </summary>
-        public int RowsCount { get; private set; }
-
-        /// <summary>
-        /// Gibt die Größe der Matrix aus. Diese kann nur über die Init-Methode verändert werden.
-        /// </summary>
-        public int ColsCount { get; private set; }
-
-        // -- indexer 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="row"></param>
-        /// <param name="col"></param>
-        /// <returns></returns>
-        public T this[int row, int col]
-        {
-            get
-            {
-                return _matrix[row][col];
-            }
-        }
+    
 
     }
 }
