@@ -80,7 +80,7 @@ namespace Nordic.Simulation.Network
 			_items.AddRange(devices);
 		}
 
-	
+
 
 
 		public void SetupMatrices()
@@ -123,6 +123,6 @@ namespace Nordic.Simulation.Network
 			}
 		}
 
-		
+
 	}
 }
