@@ -52,10 +52,10 @@ namespace Nordic.Simulation.Networking
 
 			_items = new List<IDevice>();
 
-			AssociationMatrix = new Matrix<bool>();
-			DistanceMatrix = new Matrix<float>();
-			RssMatrix = new Matrix<float>();
-			AngleMatrix = new Matrix<Angle>();
+			AssociationMatrix = new Matrix<bool>(false);
+			DistanceMatrix = new Matrix<float>(false);
+			RssMatrix = new Matrix<float>(false);
+			AngleMatrix = new Matrix<Angle>(false);
 		}
 
 		// -- methods

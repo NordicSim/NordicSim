@@ -13,15 +13,21 @@ namespace Nordic.Abstractions.Data
          */
         protected T[][] _matrix;
 
+
         // -- properties
 
         /// <summary>
-        /// Gibt die Größe der Matrix aus. Diese kann nur über die Init-Methode verändert werden.
+        /// Gets the behavior of iterating the matrix and if the elements on the main diagonal will be executed (true) or not (false).
+        /// </summary>
+        public bool IterateMainDiagonal { get; private set; }
+
+        /// <summary>
+        /// Gets the number of rows. To set this property perform the Init method.
         /// </summary>
         public int RowsCount { get; private set; }
 
         /// <summary>
-        /// Gibt die Größe der Matrix aus. Diese kann nur über die Init-Methode verändert werden.
+        /// Gets the number of columns. To set this property perform the Init method.
         /// </summary>
         public int ColsCount { get; private set; }
 
@@ -44,12 +50,13 @@ namespace Nordic.Abstractions.Data
         // -- constructors
 
         #region constructor (2)
-        public Matrix()
-        {
 
+        public Matrix(bool iterateMainDiagonal = true)
+        {
+            IterateMainDiagonal = iterateMainDiagonal;
         }
 
-        public Matrix(int rows, int cols)
+        public Matrix(int rows, int cols, bool iterateMainDiagonal = true) : this(iterateMainDiagonal)
         {
             Init(rows, cols);
         }
@@ -113,6 +120,24 @@ namespace Nordic.Abstractions.Data
         }
 
         /// <summary>
+        /// The call of this method will cause that all Each iterations will skip elements,
+        /// where the index of the row and the column are equal.
+        /// </summary>
+        public void SkipMainDiagonal()
+        {
+            IterateMainDiagonal = false;
+        }
+
+        /// <summary>
+        /// The call of this method will cause that all Each iterations will execute functions on elements,
+        /// where the index of the row and the column are equal.
+        /// </summary>
+        public void TakeMainDiagonal()
+        {
+            IterateMainDiagonal = true;
+        }
+
+        /// <summary>
         /// Runs a function on each element in the matrix.
         /// </summary>
         /// <param name="function">The delegate funktion needs the parameters  row:int, column:int, the value T and
@@ -123,6 +148,10 @@ namespace Nordic.Abstractions.Data
             {
                 for (int c = 0; c < ColsCount; c++)
                 {
+                    if (!IterateMainDiagonal && r == c)
+					{
+                        continue;
+					}
                     _matrix[r][c] = function(r, c, _matrix[r][c]);
                 }
             }
@@ -136,19 +165,19 @@ namespace Nordic.Abstractions.Data
         /// <returns>The value of the der Matrix</returns>
         public T Get(int row, int col)
         {
-            validate(row, col);
+            Validate(row, col);
             return _matrix[row][col];
         }
 
         public T[] GetRow(int row)
         {
-            validateRow(row);
+            ValidateRow(row);
             return _matrix[row];
         }
 
         public T[] GetCol(int col)
         {
-            validateCol(col);
+            ValidateCol(col);
 
             T[] colArray = new T[RowsCount];
             for (int r = 0; r < RowsCount; r++)
@@ -166,7 +195,7 @@ namespace Nordic.Abstractions.Data
         /// <param name="value">Der zu setzende Wert vom Typ der Matrix</param>
         public void Set(int row, int col, T value)
         {
-            validate(row, col);
+            Validate(row, col);
             _matrix[row][col] = value;
         }
 
@@ -195,20 +224,17 @@ namespace Nordic.Abstractions.Data
             }
         }
 
-        public override string ToString()
-        {
-            return string.Format("Rows: {0} x Cols: {1} Matrix", RowsCount, ColsCount);
-        }
+        public override string ToString() => $"Rows: {RowsCount} x Cols: {ColsCount}";
 
         // --- private methods
 
-        private void validate(int row, int col)
+        private void Validate(int row, int col)
         {
-            validateRow(row);
-            validateCol(col);
+            ValidateRow(row);
+            ValidateCol(col);
         }
 
-        private void validateRow(int row)
+        private void ValidateRow(int row)
         {
             if (row < 0 || row > RowsCount)
             {
@@ -216,7 +242,7 @@ namespace Nordic.Abstractions.Data
             }
         }
 
-        private void validateCol(int col)
+        private void ValidateCol(int col)
         {
             if (col < 0 || col > ColsCount)
             {
